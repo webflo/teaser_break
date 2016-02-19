@@ -1,0 +1,7 @@
+name: teaser_break
+type: module
+description: Teaser Break for Drupal 8
+core: 8.x
+package: Custom
+dependencies:
+  - ckeditor
