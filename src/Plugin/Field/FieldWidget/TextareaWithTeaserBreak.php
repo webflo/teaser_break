@@ -29,9 +29,6 @@ class TextareaWithTeaserBreak extends TextareaWidget {
    */
   function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
-    if (!empty($items[$delta]->summary)) {
-      $element['#default_value'] = $items[$delta]->summary . '<teaser-break></teaser-break>' . $element['#default_value'];
-    }
     return $element;
   }
 
@@ -44,7 +41,6 @@ class TextareaWithTeaserBreak extends TextareaWidget {
       $text = explode('<teaser-break></teaser-break>', $value['value']);
       if (count($text) == 2) {
         $value['summary'] = $text[0];
-        $value['value'] = $text[1];
       }
     }
     return $values;

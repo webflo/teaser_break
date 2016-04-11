@@ -49,6 +49,19 @@
           icon: this.path + '/teaser_break.png'
        });
       }
+    },
+
+    afterInit: function (editor) {
+      // Adds the comment processing rules to the data filter, so comments
+      // are replaced by fake elements.
+      editor.dataProcessor.dataFilter.addRules({
+        comment: function (value, comment) {
+          if (value == 'break') {
+            return CKEDITOR.editor.createFakeElement(comment, 'cke_drupal_' + value, 'hr' );
+          }
+          return value;
+        }
+      });
     }
   });
 
